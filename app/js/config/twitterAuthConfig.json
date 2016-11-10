@@ -1,7 +1,7 @@
 {
-	"consumerKey": "xxxx",
-	"consumerSecretKey": "xxxx",
-	"applicationToken": "xxxx",
-	"applicationTokenSecretKey": "xxxx",
-	"callBackUrl": "xxxx"
+	"consumerKey": "",
+	"consumerSecretKey": "",
+	"applicationToken": "",
+	"applicationTokenSecretKey": "",
+	"callBackUrl": ""
 }
