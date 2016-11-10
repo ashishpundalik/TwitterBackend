@@ -58,3 +58,11 @@ $ nodemon ./server.js localhost 8080
       "tweetCount": 10
     }
     ```
+  - /api/search: Retrieves tweets relevant to the hashtag value mentioned in the request
+    - params:
+    ```json
+    {
+      "hashtag": "trump",
+      "tweetCount": 10
+    }
+    ```
