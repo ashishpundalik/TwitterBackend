@@ -51,13 +51,6 @@ $ nodemon ./server.js localhost 8080
       "tweetCount": 10
     }
     ```
-  - /api/user: Retrieves your own tweets, in this case the account with which you have created the TwitterApp.
-    - params:
-    ```json
-    {
-      "tweetCount": 10
-    }
-    ```
   - /api/search: Retrieves tweets relevant to the hashtag value mentioned in the request
     - params:
     ```json
