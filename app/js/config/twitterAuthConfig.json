@@ -1,7 +1,7 @@
 {
-	"consumerKey": "",
-	"consumerSecretKey": "",
-	"applicationToken": "",
-	"applicationTokenSecretKey": "",
-	"callBackUrl": ""
+	"consumerKey": "i6VurY4UKQws4jYkEW9GcjmtK",
+	"consumerSecretKey": "VIrHpyLNcNbmvloqF0Fymz7pJ10o6krGsjFB3nWPwQRHu4jvoR",
+	"applicationToken": "793353470128427008-QdyB46kS7YYOVbzIPypxEHdX2EzS7jT",
+	"applicationTokenSecretKey": "gWDja59Zpad7889k0TfOCq2NNr10uNnJEOWodxmRziFYr",
+	"callBackUrl": null
 }

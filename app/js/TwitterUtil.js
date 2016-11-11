@@ -22,8 +22,12 @@ var TwitterUtil = (function() {
 		if(!successCB || !errorCB) {
 			throw new Error("Need to supply a success and an error callback");
 		} else {
+			console.log(twitterHandle, tweetCount);
 			twitter.getUserTimeline({ screen_name: twitterHandle, count: tweetCount},
-			twitterAuthFailure.bind(this, errorCB), twitterAuthSuccess.bind(this, errorCB, successCB));
+			twitterAuthFailure.bind(this, errorCB), function(response) {
+				var jsonResp = JSON.parse(response);
+				twitterAuthSuccess.call(this, errorCB, successCB, jsonResp);
+			});
 		}
 	};
 
@@ -31,8 +35,10 @@ var TwitterUtil = (function() {
 		if(!successCB || !errorCB) {
 			throw new Error("Need to supply a success and an error callback");
 		} else {
-			twitter.getReTweetsOfMe({count: tweetCount}, twitterAuthFailure.bind(this, errorCB),
-				twitterAuthSuccess.bind(this, errorCB, successCB));
+			twitter.getReTweetsOfMe({count: tweetCount}, twitterAuthFailure.bind(this, errorCB), function(response) {
+				var jsonResp = JSON.parse(response);
+				twitterAuthSuccess.call(this, errorCB, successCB, jsonResp);
+			});
 		}
 	}
 
@@ -40,20 +46,17 @@ var TwitterUtil = (function() {
 		if(!successCB || !errorCB) {
 			throw new Error("Need to supply a success and an error callback");
 		} else {
-			twitter.getSearch({'q': "#"+hashtag, 'count': tweetsCount}, twitterAuthFailure.bind(this, errorCB),
-				twitterAuthSuccess.bind(this, errorCB, successCB));
+			twitter.getSearch({'q': "#"+hashtag, 'count': tweetsCount}, twitterAuthFailure.bind(this, errorCB), function(response) {
+				var jsonResp = JSON.parse(response);
+				twitterAuthSuccess.call(this, errorCB, successCB, jsonResp.statuses);
+			});
 		}	
 	}
 
 	var twitterAuthSuccess = function(errorCB, successCB, response) {
-		console.log("sucess", response);
-		var jsonResp = JSON.parse(response);
-		console.log(jsonResp);
+		console.log("Response: ",response);
 		try {
-			console.log(jsonResp.statuses);
-			var tweets = CustomTweetFactory.build(jsonResp.statuses);
-			console.log("Success!");
-			console.log("Resp: ", tweets);
+			var tweets = CustomTweetFactory.build(response);
 			successCB(tweets);
 		} catch(exception) {
 			console.log("Exception occured in parsing tweets: ", exception);
