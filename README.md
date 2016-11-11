@@ -9,7 +9,7 @@ Clone the repo https://github.com/ashishpundalik/TwitterBackend.git
 Install the dependencies and devDependencies.
 
 ```sh
-$ cd TwitterBackend
+$ cd TwitterBackend/app
 $ npm install
 ```
 
