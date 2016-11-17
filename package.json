@@ -1,0 +1,58 @@
+{
+  "name": "twitterbackend",
+  "version": "0.0.1",
+  "description": "A backend server to authenticate an app on twitter and use twitter apis",
+  "main": "dist",
+  "scripts": {
+    "dev": "nodemon -w src --exec \"babel-node src --presets es2015,stage-0\"",
+    "build": "babel src -s -D -d dist --presets es2015,stage-0",
+    "start": "node dist",
+    "prestart": "npm run -s build",
+    "test": "eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashishpundalik/TwitterBackend.git"
+  },
+  "keywords": [
+    "twitter",
+    "twitterapi",
+    "restservices"
+  ],
+  "author": "Aashish Pundalik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashishpundalik/TwitterBackend/issues"
+  },
+  "homepage": "https://github.com/ashishpundalik/TwitterBackend#readme",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "compression": "^1.5.2",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "resource-router-middleware": "^0.5.1",
+    "twitter-node-client": "0.0.6"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "eslint": "^3.1.1",
+    "nodemon": "^1.9.2"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "no-console": 0,
+      "no-unused-vars": 1
+    }
+  }
+}
