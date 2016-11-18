@@ -21,12 +21,20 @@ app.use(bodyParser.json({
 
 app.use('/api', router);
 
-router.get('/user', (req, res) => {
+router.get('/user/tweets', (req, res) => {
 	new TwitterAPI().getUserTimeline(req.query.twitterHandle, req.query.tweetCount, (err) => {
 		console.log(err);
 	}, (resp) => {
 		res.send(resp);
-	});	
+	});
+});
+
+router.get('/search', (req, res) => {
+	new TwitterAPI().searchTweets('#'+req.query.hashtag, req.query.tweetCount, (err) => {
+		console.log(err);
+	}, (resp) => {
+		res.send(resp);
+	});
 });
 
 app.listen(8080, function() {
